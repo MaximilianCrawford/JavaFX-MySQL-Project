@@ -1,5 +1,7 @@
 # JavaFX-MySQL-Project
 
+[Link para README em português](../master/README.br.md)
+
 A project where an airport management system case study was developed for an University OOP class.
 
 The program stores any relevant data in a MySQL database created on the first startup, using DAO and JPA principles for Java data manipulation.
