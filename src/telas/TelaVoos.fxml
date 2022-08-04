@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root" prefHeight="1056.0" prefWidth="1920.0" styleClass="root" stylesheets="@TelasBase.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlers.TelaVoosController">
+   <top>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1008.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <children>
+          <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="1055.0" prefWidth="1920.0" VBox.vgrow="ALWAYS">
+            <items>
+              <AnchorPane fx:id="aPrinc" styleClass="painel">
+                <children>
+                  <Label alignment="CENTER" layoutX="159.0" layoutY="7.0" style="&#10;" styleClass="h1" text="Cadastro de destino" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCodDestino" layoutX="127.0" layoutY="65.0" prefHeight="25.0" prefWidth="163.0" promptText="Informe o cod do Aero" />
+                        <Button layoutX="290.0" layoutY="65.0" mnemonicParsing="false" onAction="#procurarDestino" prefHeight="25.0" prefWidth="73.0" text="Procurar" />
+                        <Button layoutX="214.0" layoutY="111.0" mnemonicParsing="false" onAction="#novoDestino" prefHeight="25.0" prefWidth="65.0" text="Novo" />
+                        <AnchorPane fx:id="pAtributosDestino" layoutX="5.0" layoutY="202.0" prefHeight="276.0" prefWidth="467.0" visible="false">
+                           <children>
+                              <TextField fx:id="txtTaxa" layoutX="241.0" layoutY="159.0" />
+                              <TextField fx:id="txtAeroporto" layoutX="241.0" layoutY="120.0" />
+                              <Text fill="#eeeeee" layoutX="115.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Aeroporto:" />
+                              <Text fill="#eeeeee" layoutX="117.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Taxa de Embarque:" />
+                              <Text fx:id="txtInfDes" fill="#eeeeee" layoutX="8.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe os dados do destino" textAlignment="CENTER" wrappingWidth="449.6666870117187">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff4747" layoutX="141.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="todos os campos são obrigatórios" />
+                              <Line endX="225.33334350585938" layoutX="232.0" startX="-223.3333282470703" stroke="#808080" />
+                              <Button fx:id="bRemDest" layoutX="324.0" layoutY="207.0" mnemonicParsing="false" onAction="#remover" prefHeight="25.0" prefWidth="72.0" text="Remover" />
+                              <Button fx:id="bEdiDest" layoutX="241.0" layoutY="207.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="63.0" text="Editar" />
+                              <Button fx:id="bInsDest" layoutX="284.0" layoutY="207.0" mnemonicParsing="false" onAction="#inserir" prefHeight="25.0" prefWidth="63.0" text="Inserir" />
+                              <Line endX="225.33334350585938" layoutX="232.0" layoutY="262.0" startX="-223.3333282470703" stroke="#808080" />
+                              <TextField fx:id="txtCodAeroporto" layoutX="242.0" layoutY="83.0" />
+                              <Text fill="#eeeeee" layoutX="111.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Aeroporto:" />
+                              <Text fill="#ff4747" layoutX="48.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="campo Código do Aeroporto não pode ser editado após ser submetido." />
+                           </children>
+                        </AnchorPane>
+                        <Label alignment="CENTER" layoutX="169.0" layoutY="502.0" style="&#10;" styleClass="h1" text="Listagem de destinos" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tDestinos" layoutX="12.0" layoutY="533.0" onMousePressed="#selecionarDestino" prefHeight="474.0" prefWidth="456.0">
+                          <columns>
+                            <TableColumn fx:id="rCodDestino" prefWidth="130.0" text="Código do Aeroporto" />
+                            <TableColumn fx:id="rNomeDestino" minWidth="3.3333740234375" prefWidth="192.0001220703125" text="Nome do Aeroporto" />
+                              <TableColumn fx:id="rTaxaDestino" prefWidth="115.999755859375" text="Taxa de Embarque" />
+                          </columns>
+                        </TableView>
+                        <ScrollPane layoutX="60.0" layoutY="151.0" prefHeight="62.0" prefWidth="358.0" style="-fx-background-color: transparent;">
+                           <content>
+                              <Text fx:id="txtInfoDestino" fill="#eeeeee" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="353.3335266113281">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </content>
+                        </ScrollPane>
+                </children>
+              </AnchorPane>
+              <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                <content>
+                  <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" styleClass="painel">
+                    <children>
+                      <Label alignment="CENTER" layoutX="401.0" layoutY="7.0" style="&#10;" styleClass="h1" text="Listagem de voos" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tVoos" layoutX="-2.0" layoutY="34.0" onMousePressed="#selecionarVoo" prefHeight="991.0" prefWidth="954.0">
+                                <columns>
+                                  <TableColumn fx:id="rCodVoo" prefWidth="143.33330821990967" text="Código" />
+                                  <TableColumn fx:id="rCodAviao" minWidth="1.3333740234375" prefWidth="169.3333282470703" text="Registro do Avião" />
+                                    <TableColumn fx:id="rCodigoDestino" prefWidth="180.0" text="Código do Aeroporto Destino" />
+                                    <TableColumn fx:id="rDataPartida" prefWidth="240.66659545898438" text="Data de Partida" />
+                                    <TableColumn fx:id="rValor" prefWidth="189.3333740234375" text="Valor de Passagem" />
+                                </columns>
+                              </TableView>
+                    </children>
+                  </AnchorPane>
+                </content>
+              </ScrollPane>
+              <AnchorPane styleClass="painel">
+                <children>
+                        <ScrollPane layoutX="71.0" layoutY="169.0" prefHeight="48.0" prefWidth="358.0" style="-fx-background-color: transparent;">
+                           <content>
+                              <Text fx:id="txtInfoVoo" fill="#eeeeee" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="339.3332824707031">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </content>
+                        </ScrollPane>
+                  <Label alignment="CENTER" layoutX="156.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" styleClass="h1" text="Cadastro de voo" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                    <font>
+                      <Font size="18.0" />
+                    </font>
+                  </Label>
+                        <TextField fx:id="txtCodVoo" layoutX="108.0" layoutY="68.0" prefHeight="25.0" prefWidth="163.0" promptText="Informe o código do voo" />
+                        <AnchorPane fx:id="pAtributosVoo" layoutY="231.0" prefHeight="798.0" prefWidth="461.0" visible="false">
+                           <children>
+                              <Text fill="#eeeeee" layoutX="124.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro do Avião:" />
+                              <Text fill="#eeeeee" layoutX="121.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código do Destino:" />
+                              <Text fill="#eeeeee" layoutX="133.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de Partida:" />
+                              <Text fx:id="txtInf" fill="#eeeeee" layoutX="8.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe os dados do voo" textAlignment="CENTER" wrappingWidth="449.6666870117187">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff4747" layoutX="144.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="todos os campos são obrigatórios" />
+                              <Line endX="225.33334350585938" layoutX="232.0" startX="-223.3333282470703" stroke="#808080" />
+                              <Button fx:id="bRemVoo" layoutX="324.0" layoutY="291.0" mnemonicParsing="false" onAction="#remover" prefHeight="25.0" prefWidth="71.0" text="Remover" />
+                              <Button fx:id="bEdiVoo" layoutX="241.0" layoutY="291.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="63.0" text="Editar" />
+                              <Button fx:id="bInsVoo" layoutX="284.0" layoutY="291.0" mnemonicParsing="false" onAction="#inserir" prefHeight="25.0" prefWidth="63.0" text="Inserir" />
+                              <TextField fx:id="txtValor" layoutX="241.0" layoutY="240.0" />
+                              <Text fill="#eeeeee" layoutX="113.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de Passagem:" />
+                              <DatePicker fx:id="datPartida" editable="false" layoutX="240.0" layoutY="199.0" prefHeight="23.0" prefWidth="149.0" />
+                              <ComboBox fx:id="cbAviao" layoutX="240.0" layoutY="120.0" prefWidth="150.0" visibleRowCount="6" />
+                              <ComboBox fx:id="cbDestino" layoutX="241.0" layoutY="159.0" prefWidth="150.0" visibleRowCount="6" />
+                           </children>
+                        </AnchorPane>
+                        <Button layoutX="271.0" layoutY="68.0" mnemonicParsing="false" onAction="#procurarVoo" prefHeight="25.0" prefWidth="74.0" text="Procurar" />
+                        <Button layoutX="195.0" layoutY="114.0" mnemonicParsing="false" onAction="#novoVoo" prefHeight="25.0" prefWidth="65.0" text="Novo" />
+                </children>
+              </AnchorPane>
+            </items>
+          </SplitPane>
+        </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1920.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="txtEsquerdo" maxHeight="1.7976931348623157E308" maxWidth="-1.0" prefHeight="17.0" prefWidth="469.0" text="Selecione uma ação" textFill="#9f9f9f" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

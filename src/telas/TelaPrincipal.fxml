@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="root" stylesheets="@TelasBase.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlers.TelaPrincipalController">
+   <top>
+    <MenuBar BorderPane.alignment="CENTER">
+      <menus>
+            <Menu mnemonicParsing="false" text="Aplicação">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#chamarVendas" text="Realizar Venda de Passagem" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#chamarRelatorioOcupacao" text="Relatório de Ocupação" />
+                  <MenuItem mnemonicParsing="false" onAction="#chamarRelatorioVendas" text="Relatório de Vendas" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#sair" text="Sair" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Cadastros">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#chamarAeronaves" text="Aviões" />
+                  <MenuItem mnemonicParsing="false" onAction="#chamarVoos" text="Voos/Destinos" />
+                  <MenuItem mnemonicParsing="false" onAction="#chamarOcupacao" text="Ocupação" />
+              </items>
+            </Menu>
+        <Menu mnemonicParsing="false" text="Editar">
+          <items>
+            <MenuItem fx:id="desfazer" mnemonicParsing="false" onAction="#atalho" text="Desfazer    Ctrl + Z" />
+            <MenuItem fx:id="refazer" mnemonicParsing="false" onAction="#atalho" text="Refazer    Ctrl  + Y" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="cortar" mnemonicParsing="false" onAction="#atalho" text="Cortar    Ctrl + X" />
+            <MenuItem fx:id="copiar" mnemonicParsing="false" onAction="#atalho" text="Copiar     Ctrl + C" />
+            <MenuItem fx:id="colar" mnemonicParsing="false" onAction="#atalho" text="Colar    Ctrl + V" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="tudo" mnemonicParsing="false" onAction="#atalho" text="Selecionar Tudo    Ctrl + A" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+   </top>
+</BorderPane>

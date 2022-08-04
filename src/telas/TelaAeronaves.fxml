@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root" prefHeight="1056.0" prefWidth="1920.0" styleClass="root" stylesheets="@TelasBase.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlers.TelaAeronavesController">
+   <top>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1008.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <children>
+          <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="1055.0" prefWidth="1920.0" VBox.vgrow="ALWAYS">
+            <items>
+              <AnchorPane fx:id="aPrinc" styleClass="painel">
+                <children>
+                  <Label alignment="CENTER" layoutX="168.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" styleClass="h1" text="Cadastro de avião" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                    <font>
+                      <Font size="18.0" />
+                    </font>
+                  </Label>
+                        <TextField fx:id="txtCodAviao" layoutX="119.0" layoutY="67.0" prefHeight="25.0" prefWidth="163.0" promptText="Informe o registro do avião" />
+                        <AnchorPane fx:id="pAtributosAviao" layoutX="6.0" layoutY="231.0" prefHeight="795.0" prefWidth="467.0" visible="false">
+                           <children>
+                              <TextField fx:id="txtAss" layoutX="241.0" layoutY="159.0" />
+                              <TextField fx:id="txtAssEspeciais" layoutX="241.0" layoutY="199.0" />
+                              <TextField fx:id="txtModelo" layoutX="241.0" layoutY="120.0" />
+                              <Text fill="#eeeeee" layoutX="174.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo:" />
+                              <Text fill="#eeeeee" layoutX="41.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade de assentos normais:" />
+                              <Text fill="#eeeeee" layoutX="37.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade de assentos especiais:" />
+                              <Text fx:id="txtInf" fill="#eeeeee" layoutX="8.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informe os dados do avião" textAlignment="CENTER" wrappingWidth="449.6666870117187">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#ff4747" layoutX="144.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="todos os campos são obrigatórios" />
+                              <Line endX="225.33334350585938" layoutX="232.0" startX="-223.3333282470703" stroke="#808080" />
+                              <Button fx:id="bRemAviao" layoutX="324.0" layoutY="250.0" mnemonicParsing="false" onAction="#remover" prefHeight="25.0" prefWidth="74.0" text="Remover" />
+                              <Button fx:id="bEdiAviao" layoutX="241.0" layoutY="250.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="63.0" text="Editar" />
+                              <Button fx:id="bInsAviao" layoutX="284.0" layoutY="250.0" mnemonicParsing="false" onAction="#inserir" prefHeight="25.0" prefWidth="63.0" text="Inserir" />
+                              <Text fill="#ff4747" layoutX="124.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número máximo de assentos suportado: 850" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="bProAviao" layoutX="282.0" layoutY="67.0" mnemonicParsing="false" onAction="#procurar" prefHeight="25.0" prefWidth="73.0" text="Procurar" />
+                        <Button fx:id="bNovoAviao" layoutX="206.0" layoutY="113.0" mnemonicParsing="false" onAction="#novo" prefHeight="25.0" prefWidth="65.0" text="Novo" />
+                        <ScrollPane layoutX="21.0" layoutY="164.0" prefHeight="60.0" prefWidth="443.0" style="-fx-background-color: transparent;">
+                           <content>
+                              <Text fx:id="txtAviso" fill="#eeeeee" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="431.7724685668945">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </content>
+                        </ScrollPane>
+                </children>
+              </AnchorPane>
+              <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                <content>
+                  <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="1028.0" prefWidth="952.0" styleClass="painel">
+                    <children>
+                      <Label alignment="CENTER" layoutX="401.0" layoutY="7.0" style="&#10;" styleClass="h1" text="Listagem de aviões" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tAvioes" layoutX="6.0" layoutY="34.0" onMousePressed="#selecionarAviao" prefHeight="993.0" prefWidth="939.0">
+                                <columns>
+                                  <TableColumn fx:id="rCodAviao" prefWidth="143.33330821990967" text="Número de Registro" />
+                                  <TableColumn fx:id="rModeloAviao" minWidth="1.3333740234375" prefWidth="443.3332977294922" text="Modelo" />
+                                    <TableColumn fx:id="rAssentosAviao" prefWidth="142.666748046875" text="Assentos" />
+                                    <TableColumn fx:id="rAssentosEsAviao" prefWidth="202.6666259765625" text="Assentos Especiais" />
+                                </columns>
+                              </TableView>
+                    </children>
+                  </AnchorPane>
+                </content>
+              </ScrollPane>
+              <AnchorPane styleClass="painel">
+                <children>
+                  <Label alignment="CENTER" layoutX="166.0" layoutY="14.0" style="&#10;" styleClass="h1" text="Estrutura do avião" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane fx:id="spAviao" hbarPolicy="NEVER" layoutX="79.0" layoutY="72.0" pannable="true" prefHeight="955.0" prefWidth="331.0" style="-fx-background-color: transparent;" visible="false">
+                           <content>
+                              <VBox alignment="TOP_CENTER" prefHeight="921.0" prefWidth="229.0">
+                                 <children>
+                                    <ImageView fitHeight="435.0" fitWidth="350.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imagens/FrenteAviao.png" />
+                                       </image>
+                                    </ImageView>
+                                    <GridPane fx:id="gAviao" alignment="CENTER" prefHeight="63.0" prefWidth="293.0" style="-fx-padding: 1em; -fx-background-color: #fefefe; -fx-border-color: #abc; -fx-border-width: 0  1em 0 1em;">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                    <ImageView fx:id="imgFim" fitHeight="339.0" fitWidth="314.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@imagens/FundoAviao.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </VBox>
+                           </content>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ScrollPane>
+                        <Line endX="378.0" endY="0.6262130737304688" layoutX="88.0" layoutY="71.0" startX="-80.6666259765625" startY="0.6262130737304688" stroke="#78819d" />
+                        <Line endX="370.333251953125" endY="0.626220703125" layoutX="95.0" layoutY="1026.0" startX="-86.3333740234375" startY="0.626220703125" stroke="#78819d" />
+                    <Label layoutX="64.0" layoutY="45.0" maxWidth="-1.0" prefHeight="17.0" prefWidth="361.0" text="Azul = Assento Normal        Vermelho = Assento Especial" textAlignment="CENTER" textFill="#eeeeee" />
+                </children>
+              </AnchorPane>
+            </items>
+          </SplitPane>
+        </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1920.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="txtEsquerdo" maxHeight="1.7976931348623157E308" maxWidth="-1.0" prefHeight="17.0" prefWidth="469.0" text="Selecione uma ação" textFill="#9f9f9f" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Text fx:id="txtEstrutura" fill="#eeeeee" layoutX="1001.0" layoutY="12.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione um avião" textAlignment="CENTER" wrappingWidth="401.7724685668945">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

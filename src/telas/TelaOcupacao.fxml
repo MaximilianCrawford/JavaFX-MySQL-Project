@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="root" prefHeight="1056.0" prefWidth="1920.0" styleClass="root" stylesheets="@TelasBase.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlers.TelaOcupacaoController">
+   <top>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1008.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
+        <children>
+          <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="1055.0" prefWidth="1920.0" VBox.vgrow="ALWAYS">
+            <items>
+              <AnchorPane fx:id="aPrinc" styleClass="painel">
+                <children>
+                  <Label alignment="CENTER" layoutX="150.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" styleClass="h1" text="Cadastro de ocupação" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                    <font>
+                      <Font size="18.0" />
+                    </font>
+                  </Label>
+                        <AnchorPane fx:id="pAtributosOcupacao" layoutX="6.0" layoutY="231.0" prefHeight="795.0" prefWidth="467.0">
+                           <children>
+                              <Text fill="#eeeeee" layoutX="110.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Código da Ocupação:" />
+                              <Text fill="#eeeeee" layoutX="193.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:" />
+                              <Text fill="#eeeeee" layoutX="118.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assento Escolhido:" />
+                              <Text fill="#ff4747" layoutX="148.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="todos os campos são obrigatórios" />
+                              <Line endX="225.33334350585938" layoutX="232.0" startX="-223.3333282470703" stroke="#808080" />
+                              <Button fx:id="bRemOcupacao" disable="true" layoutX="315.0" layoutY="259.0" mnemonicParsing="false" onAction="#remover" prefHeight="25.0" prefWidth="71.0" text="Remover" />
+                              <Button fx:id="bEdiOcupacao" disable="true" layoutX="234.0" layoutY="259.0" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="63.0" text="Editar" />
+                              <DatePicker fx:id="datVoo" disable="true" editable="false" layoutX="241.0" layoutY="159.0" prefHeight="23.0" prefWidth="148.0" />
+                              <ComboBox fx:id="cbVoo" layoutX="240.0" layoutY="120.0" onAction="#filtrarData" prefWidth="150.0" visibleRowCount="6" />
+                              <TextField fx:id="txtAssento" disable="true" layoutX="239.0" layoutY="198.0" />
+                              <Text fx:id="txtAssentosLm" fill="#eeeeee" layoutX="97.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="336.8033752441406" />
+                              <Text fill="#eeeeee" layoutX="76.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione uma ocupação da tabela para manutenção ou escolha um código abaixo." textAlignment="CENTER" wrappingWidth="329.4979772567749">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane layoutX="21.0" layoutY="164.0" prefHeight="60.0" prefWidth="443.0" style="-fx-background-color: transparent;">
+                           <content>
+                              <Text fx:id="txtAviso" fill="#eeeeee" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="431.7724685668945">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Text>
+                           </content>
+                        </ScrollPane>
+                </children>
+              </AnchorPane>
+              <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+                <content>
+                  <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0" styleClass="painel">
+                    <children>
+                      <Label alignment="CENTER" layoutX="382.0" layoutY="3.0" style="&#10;" styleClass="h1" text="Listagem de ocupação" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tOcupacao" layoutX="6.0" layoutY="34.0" onMousePressed="#selecionarOcupacao" prefHeight="991.0" prefWidth="946.0">
+                                <columns>
+                                  <TableColumn fx:id="rCodVooOcupacao" prefWidth="169.3333077430725" text="Número da Ocupação" />
+                                  <TableColumn fx:id="rDataOcupacao" minWidth="1.3333740234375" prefWidth="160.6667022705078" text="Data" />
+                                    <TableColumn fx:id="rAssentoAviaoOcupacao" prefWidth="132.666748046875" text="Assento Escolhido" />
+                                    <TableColumn fx:id="rAviaoOcupacao" prefWidth="173.33334350585938" text="Avião" />
+                                    <TableColumn fx:id="rCpfPassageiroOcupacao" prefWidth="272.0" text="Dados do Passageiro" />
+                                </columns>
+                              </TableView>
+                    </children>
+                  </AnchorPane>
+                </content>
+              </ScrollPane>
+              <AnchorPane styleClass="painel">
+                <children>
+                  <Label alignment="CENTER" layoutX="156.0" layoutY="14.0" style="&#10;" styleClass="h1" text="Listagens Relevantes" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tPassageiros" layoutX="10.0" layoutY="72.0" prefHeight="237.0" prefWidth="456.0">
+                          <columns>
+                            <TableColumn fx:id="rCpf" prefWidth="123.333251953125" text="CPF" />
+                            <TableColumn fx:id="rNome" prefWidth="162.6666259765625" text="Nome" />
+                              <TableColumn fx:id="rNasc" prefWidth="138.66650390625" text="Data de Nascimento" />
+                          </columns>
+                        </TableView>
+                        <Text fill="#eeeeee" layoutX="205.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passageiros">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#eeeeee" layoutX="217.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aviões">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#eeeeee" layoutX="224.0" layoutY="757.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voos">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="tAvioes" layoutX="7.0" layoutY="390.0" prefHeight="332.0" prefWidth="465.0">
+                           <columns>
+                              <TableColumn fx:id="rCodAviao" prefWidth="75.9998779296875" text="Registro" />
+                              <TableColumn fx:id="rModeloAviao" minWidth="1.3333740234375" prefWidth="119.9998779296875" text="Modelo" />
+                              <TableColumn fx:id="rAssentosAviao" prefWidth="98.6666259765625" text="Assentos" />
+                              <TableColumn fx:id="rAssentosEsAviao" prefWidth="152.0" text="Assentos Especiais" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="tVoos" layoutX="12.0" layoutY="769.0" prefHeight="234.0" prefWidth="450.0">
+                           <columns>
+                              <TableColumn fx:id="rCodVoo" prefWidth="71.3333740234375" text="Código" />
+                              <TableColumn fx:id="rCodAviaoVoo" minWidth="0.0" prefWidth="114.0" text="Registro do Avião" />
+                              <TableColumn fx:id="rCodigoDestino" prefWidth="69.9998779296875" text="Destino" />
+                              <TableColumn fx:id="rDataPartida" prefWidth="99.9998779296875" text="Data de Partida" />
+                              <TableColumn fx:id="rValor" prefWidth="76.66650390625" text="Valor" />
+                           </columns>
+                        </TableView>
+                </children>
+              </AnchorPane>
+            </items>
+          </SplitPane>
+        </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1920.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="txtEsquerdo" maxHeight="1.7976931348623157E308" maxWidth="-1.0" prefHeight="17.0" prefWidth="469.0" text="Selecione uma ação" textFill="#eeeeee" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
