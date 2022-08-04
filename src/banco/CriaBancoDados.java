@@ -57,7 +57,7 @@ public class CriaBancoDados {
 
     //cria o schema do banco//
     public void makeTables() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("Banco.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("Banco.sql"));
         String line;
         String sql = "";
         while ((line = reader.readLine()) != null) {
